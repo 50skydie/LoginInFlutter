@@ -37,7 +37,7 @@ class _LoginViewState extends State<LoginView> {
                   fontSize: 30,
                   fontWeight: FontWeight.w700,
                   fontFamily: 'Inter',
-                )
+                ),
             ),
 
             //User Name field
@@ -49,7 +49,7 @@ class _LoginViewState extends State<LoginView> {
                     borderSide: const BorderSide(
                       width: 2.0,
                       color: Colors.deepPurple,
-                    )
+                    ),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15.0),
@@ -101,19 +101,22 @@ class _LoginViewState extends State<LoginView> {
                   fontSize: 15,
                   fontWeight: FontWeight.w700,
                   fontFamily: 'Inter',
-                )
+                ),
             ),
 
             //Submit button
             ElevatedButton(
                 onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: MyColors.purpleColor,
-                  padding: EdgeInsets.symmetric(horizontal: 200, vertical: 20),
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all<Color>(MyColors.purpleColor),
+                  padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.symmetric(horizontal: (390/2), vertical: (50/2))),
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0),)
+                  ),
                 ),
-                child: Text(
-                    'Sign in', style: TextStyle(
-                      fontSize: 15,
+                child: const Text(
+                  'Sign in', style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w700,
                 ),
                 ),
             ),
@@ -124,7 +127,7 @@ class _LoginViewState extends State<LoginView> {
                   color: Colors.deepPurple,
                   fontSize: 15,
                   fontWeight: FontWeight.w400,
-                )
+                ),
             ),
 
             // todo 4 icon logos
@@ -145,7 +148,7 @@ class _LoginViewState extends State<LoginView> {
                   color: Colors.deepPurple,
                   fontSize: 15,
                   fontWeight: FontWeight.w400
-                )
+                ),
             ),
           ],
         ),
