@@ -1,7 +1,9 @@
+import 'dart:js_interop';
+
 import 'package:flutter/material.dart';
 import 'package:cwiczenia_mobilki/Utils/colors.dart';
 import 'package:cwiczenia_mobilki/Utils/images.dart';
-
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import '../Register/register_view.dart';
 
 class LoginView extends StatefulWidget {
@@ -11,10 +13,12 @@ class LoginView extends StatefulWidget {
   State<LoginView> createState() => _LoginViewState();
 }
 
-//todo swoj wlasny widget, do wprowadzania textu z dowolna ikonka i standart textem
+//variables
+bool passwordVisible = false;
 
 class _LoginViewState extends State<LoginView> {
   @override
+
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
@@ -38,16 +42,26 @@ class _LoginViewState extends State<LoginView> {
               decoration: InputDecoration(
                   hintText: 'Email or User Name',
                   border: OutlineInputBorder(),
-                  prefixIcon: Icon(Icons.account_circle_outlined)
+                  prefixIcon: ImageIcon(AssetImage(MyImages.imageEmailIcon), size: 30, color: Colors.deepPurple,)
               ),
             ),
 
             //Password field
-            const TextField(
+            TextField(
+              obscureText: !passwordVisible,
               decoration: InputDecoration(
-                hintText: 'Password',
-                border: OutlineInputBorder(),
-                prefixIcon: Icon(Icons.account_balance_wallet_outlined)
+                  hintText: 'Password',
+                  border: OutlineInputBorder(),
+                  prefixIcon: ImageIcon(AssetImage(MyImages.imagePasswordIcon), size: 30, color: Colors.deepPurple,),
+
+                  suffixIcon: IconButton(
+                    icon: ImageIcon(AssetImage(MyImages.imagePasswordEyeIcon), size: 30, color: Colors.black,),
+                    onPressed: () {
+                      setState(() {
+                        passwordVisible = !passwordVisible;
+                      });
+                    },
+                  ) //
               ),
             ),
 
@@ -80,7 +94,17 @@ class _LoginViewState extends State<LoginView> {
             ),
 
             // todo 4 icon logos
-
+            StaggeredGrid.count(
+              crossAxisCount: 4,
+              mainAxisSpacing: 4,
+              crossAxisSpacing: 4,
+              children: [
+                StaggeredGridTile.count(crossAxisCellCount: 1, mainAxisCellCount: 1, child: Image.asset(MyImages.imageGoogle)),
+                StaggeredGridTile.count(crossAxisCellCount: 1, mainAxisCellCount: 1, child: Image.asset(MyImages.imageFacebook)),
+                StaggeredGridTile.count(crossAxisCellCount: 1, mainAxisCellCount: 1, child: Image.asset(MyImages.imageX)),
+                StaggeredGridTile.count(crossAxisCellCount: 1, mainAxisCellCount: 1, child: Image.asset(MyImages.imageLinkedin)),
+              ],
+            ),
             // dont have acc text?
             const Text('Don\'t have account ? Sing Up',
                 style: TextStyle(
