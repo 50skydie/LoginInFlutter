@@ -31,18 +31,34 @@ class _LoginViewState extends State<LoginView> {
             Image.asset(MyImages.imageLogo),
 
             //Sign in simple text
-            Text('Sign in', textAlign: TextAlign.left,
+            const Text('Sign in', textAlign: TextAlign.left,
                 style: TextStyle(
-                    color: MyColors.purpleColor
+                  color: Colors.deepPurple,
+                  fontSize: 30,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: 'Inter',
                 )
             ),
 
             //User Name field
-            const TextField(
+            TextField(
               decoration: InputDecoration(
                   hintText: 'Email or User Name',
-                  border: OutlineInputBorder(),
-                  prefixIcon: ImageIcon(AssetImage(MyImages.imageEmailIcon), size: 30, color: Colors.deepPurple,)
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                    borderSide: const BorderSide(
+                      width: 2.0,
+                      color: Colors.deepPurple,
+                    )
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                    borderSide: const BorderSide(
+                      width: 2.0,
+                      color: Colors.deepPurple,
+                    ),
+                  ),
+                  prefixIcon: const ImageIcon(AssetImage(MyImages.imageEmailIcon), size: 30, color: Colors.deepPurple,)
               ),
             ),
 
@@ -51,8 +67,21 @@ class _LoginViewState extends State<LoginView> {
               obscureText: !passwordVisible,
               decoration: InputDecoration(
                   hintText: 'Password',
-                  border: OutlineInputBorder(),
-                  prefixIcon: ImageIcon(AssetImage(MyImages.imagePasswordIcon), size: 30, color: Colors.deepPurple,),
+                  enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                      borderSide: const BorderSide(
+                        width: 2.0,
+                        color: Colors.deepPurple,
+                      ),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                    borderSide: const BorderSide(
+                      width: 2.0,
+                      color: Colors.deepPurple,
+                    ),
+                  ),
+                  prefixIcon: const ImageIcon(AssetImage(MyImages.imagePasswordIcon), size: 30, color: Colors.deepPurple,),
 
                   suffixIcon: IconButton(
                     icon: ImageIcon(AssetImage(MyImages.imagePasswordEyeIcon), size: 30, color: Colors.black,),
@@ -66,9 +95,12 @@ class _LoginViewState extends State<LoginView> {
             ),
 
             //Forget Password
-            Text('Forget Password ?', textAlign: TextAlign.right,
+            const Text('Forget Password ?', textAlign: TextAlign.right,
                 style: TextStyle(
-                    color: MyColors.purpleColor
+                  color: Colors.deepPurple,
+                  fontSize: 15,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: 'Inter',
                 )
             ),
 
@@ -81,7 +113,7 @@ class _LoginViewState extends State<LoginView> {
                 ),
                 child: Text(
                     'Sign in', style: TextStyle(
-                    backgroundColor: MyColors.purpleColor
+                      fontSize: 15,
                 ),
                 ),
             ),
@@ -89,7 +121,9 @@ class _LoginViewState extends State<LoginView> {
             //Or sign in With
             const Text('Or sign in With',
                 style: TextStyle(
-                    color: Colors.deepPurple,
+                  color: Colors.deepPurple,
+                  fontSize: 15,
+                  fontWeight: FontWeight.w400,
                 )
             ),
 
@@ -109,6 +143,8 @@ class _LoginViewState extends State<LoginView> {
             const Text('Don\'t have account ? Sing Up',
                 style: TextStyle(
                   color: Colors.deepPurple,
+                  fontSize: 15,
+                  fontWeight: FontWeight.w400
                 )
             ),
           ],
