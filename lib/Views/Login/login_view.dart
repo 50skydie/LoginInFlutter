@@ -22,7 +22,7 @@ class _LoginViewState extends State<LoginView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(30.0),
         child: Column(
           //mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -31,15 +31,21 @@ class _LoginViewState extends State<LoginView> {
             Image.asset(MyImages.imageLogo),
 
             //Sign in simple text
-            const Text('Sign in', textAlign: TextAlign.left,
-                style: TextStyle(
-                  color: Colors.deepPurple,
-                  fontSize: 30,
-                  fontWeight: FontWeight.w700,
-                  fontFamily: 'Inter',
+            const Align(
+              alignment: Alignment.centerLeft,
+              child: Padding(
+                padding: EdgeInsets.only(left: 1.0),
+                child: Text('Sign in', textAlign: TextAlign.left,
+                  style: TextStyle(
+                    color: Colors.deepPurple,
+                    fontSize: 30,
+                    fontWeight: FontWeight.w700,
+                    fontFamily: 'Inter',
+                  ),
                 ),
+              ),
             ),
-
+            const SizedBox(height: 30), //padding
             //User Name field
             TextField(
               decoration: InputDecoration(
@@ -61,7 +67,7 @@ class _LoginViewState extends State<LoginView> {
                   prefixIcon: const ImageIcon(AssetImage(MyImages.imageEmailIcon), size: 30, color: Colors.deepPurple,)
               ),
             ),
-
+            const SizedBox(height: 30), //padding
             //Password field
             TextField(
               obscureText: !passwordVisible,
@@ -93,17 +99,23 @@ class _LoginViewState extends State<LoginView> {
                   ) //
               ),
             ),
-
+            const SizedBox(height: 30), //padding
             //Forget Password
-            const Text('Forget Password ?', textAlign: TextAlign.right,
-                style: TextStyle(
-                  color: Colors.deepPurple,
-                  fontSize: 15,
-                  fontWeight: FontWeight.w700,
-                  fontFamily: 'Inter',
+            const Align(
+              alignment: Alignment.centerRight,
+              child: Padding(
+                padding: EdgeInsets.only(left: 1.0),
+                child: Text('Forget Password ?', textAlign: TextAlign.right,
+                  style: TextStyle(
+                    color: Colors.deepPurple,
+                    fontSize: 15,
+                    fontWeight: FontWeight.w700,
+                    fontFamily: 'Inter',
+                  ),
                 ),
+              ),
             ),
-
+            const SizedBox(height: 30),
             //Submit button
             ElevatedButton(
                 onPressed: () {},
@@ -120,21 +132,21 @@ class _LoginViewState extends State<LoginView> {
                 ),
                 ),
             ),
-
+            // SizedBox(height: 50), //padding
             //Or sign in With
+            const SizedBox(height: 30),
             const Text('Or sign in With',
-                style: TextStyle(
-                  color: Colors.deepPurple,
-                  fontSize: 15,
-                  fontWeight: FontWeight.w400,
-                ),
+              style: TextStyle(
+                color: Colors.deepPurple,
+                fontSize: 15,
+                fontWeight: FontWeight.w400,
+              ),
             ),
-
             // todo 4 icon logos
             StaggeredGrid.count(
               crossAxisCount: 4,
-              mainAxisSpacing: 4,
-              crossAxisSpacing: 4,
+              mainAxisSpacing: 1,
+              crossAxisSpacing: 1,
               children: [
                 StaggeredGridTile.count(crossAxisCellCount: 1, mainAxisCellCount: 1, child: Image.asset(MyImages.imageGoogle)),
                 StaggeredGridTile.count(crossAxisCellCount: 1, mainAxisCellCount: 1, child: Image.asset(MyImages.imageFacebook)),
