@@ -155,13 +155,34 @@ class _LoginViewState extends State<LoginView> {
               ],
             ),
             // dont have acc text?
-            const Text('Don\'t have account ? Sing Up',
-                style: TextStyle(
-                  color: Colors.deepPurple,
-                  fontSize: 15,
-                  fontWeight: FontWeight.w400
-                ),
+
+            Column(children: [
+              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                const Flexible (
+                child: Text (
+                "Don't have account ?",
+              style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w300,
+                color: Colors.deepPurple,
+              ),
+            )),
+                TextButton(
+                  style: TextButton.styleFrom(
+                    foregroundColor: Colors.deepPurple,
+
+                  ),
+                    onPressed: () {},
+                    child: const Text('Sing Up',
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                    )))
+                ]
             ),
+              ],
+            )
+
           ],
         ),
       ),
