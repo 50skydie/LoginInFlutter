@@ -101,18 +101,20 @@ class _LoginViewState extends State<LoginView> {
             ),
             const SizedBox(height: 30), //padding
             //Forget Password
-            const Align(
+            Align(
               alignment: Alignment.centerRight,
               child: Padding(
                 padding: EdgeInsets.only(left: 1.0),
-                child: Text('Forget Password ?', textAlign: TextAlign.right,
-                  style: TextStyle(
-                    color: Colors.deepPurple,
-                    fontSize: 15,
-                    fontWeight: FontWeight.w700,
-                    fontFamily: 'Inter',
+                child: TextButton(
+                  style: TextButton.styleFrom(
+                    foregroundColor: Colors.deepPurple,
                   ),
-                ),
+                    onPressed: () {},
+                    child: const Text('Forget password?',
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                        ),),),
               ),
             ),
             const SizedBox(height: 30),
@@ -155,7 +157,7 @@ class _LoginViewState extends State<LoginView> {
               ],
             ),
             // dont have acc text?
-
+            const SizedBox(height: 50), //padding
             Column(children: [
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 const Flexible (
@@ -170,7 +172,6 @@ class _LoginViewState extends State<LoginView> {
                 TextButton(
                   style: TextButton.styleFrom(
                     foregroundColor: Colors.deepPurple,
-
                   ),
                     onPressed: () {},
                     child: const Text('Sing Up',
@@ -178,12 +179,8 @@ class _LoginViewState extends State<LoginView> {
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
                     )))
-                ]
-            ),
-              ],
-            )
-
-          ],
+                ]),],
+            )],
         ),
       ),
     );
