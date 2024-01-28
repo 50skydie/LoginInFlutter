@@ -1,5 +1,4 @@
-import 'dart:js_interop';
-
+import 'package:cwiczenia_mobilki/Views/Home/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:cwiczenia_mobilki/Utils/colors.dart';
 import 'package:cwiczenia_mobilki/Utils/images.dart';
@@ -24,7 +23,7 @@ class _LoginViewState extends State<LoginView> {
       body: Padding(
         padding: const EdgeInsets.all(30.0),
         child: Column(
-          //mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
 
             //logo png
@@ -35,7 +34,7 @@ class _LoginViewState extends State<LoginView> {
               alignment: Alignment.centerLeft,
               child: Padding(
                 padding: EdgeInsets.only(left: 1.0),
-                child: Text('Sign in', textAlign: TextAlign.left,
+                child: Text('Logowanie', textAlign: TextAlign.left,
                   style: TextStyle(
                     color: Colors.deepPurple,
                     fontSize: 30,
@@ -45,11 +44,11 @@ class _LoginViewState extends State<LoginView> {
                 ),
               ),
             ),
-            const SizedBox(height: 30), //padding
+            //const SizedBox(height: 30), //padding
             //User Name field
             TextField(
               decoration: InputDecoration(
-                  hintText: 'Email or User Name',
+                  hintText: 'E-mail',
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15.0),
                     borderSide: const BorderSide(
@@ -67,12 +66,12 @@ class _LoginViewState extends State<LoginView> {
                   prefixIcon: const ImageIcon(AssetImage(MyImages.imageEmailIcon), size: 30, color: Colors.deepPurple,)
               ),
             ),
-            const SizedBox(height: 30), //padding
+            //const SizedBox(height: 10), //padding
             //Password field
             TextField(
               obscureText: !passwordVisible,
               decoration: InputDecoration(
-                  hintText: 'Password',
+                  hintText: 'Hasło',
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15.0),
                       borderSide: const BorderSide(
@@ -90,7 +89,7 @@ class _LoginViewState extends State<LoginView> {
                   prefixIcon: const ImageIcon(AssetImage(MyImages.imagePasswordIcon), size: 30, color: Colors.deepPurple,),
 
                   suffixIcon: IconButton(
-                    icon: ImageIcon(AssetImage(MyImages.imagePasswordEyeIcon), size: 30, color: Colors.black,),
+                    icon: const ImageIcon(AssetImage(MyImages.imagePasswordEyeIcon), size: 30, color: Colors.black,),
                     onPressed: () {
                       setState(() {
                         passwordVisible = !passwordVisible;
@@ -99,36 +98,35 @@ class _LoginViewState extends State<LoginView> {
                   ) //
               ),
             ),
-            const SizedBox(height: 30), //padding
+            //const SizedBox(height: 30), //padding
             //Forget Password
             Align(
               alignment: Alignment.centerRight,
               child: Padding(
-                padding: EdgeInsets.only(left: 1.0),
+                padding: const EdgeInsets.only(left: 1.0),
                 child: TextButton(
                   style: TextButton.styleFrom(
                     foregroundColor: Colors.deepPurple,
                   ),
                     onPressed: () {},
-                    child: const Text('Forget password?',
+                    child: const Text('Zapomniałeś hasła?',
                         style: TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
                         ),),),
               ),
             ),
-            const SizedBox(height: 30),
+            //const SizedBox(height: 30),
             //Submit button
             ElevatedButton(
-                onPressed: () {},
+                onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeView()),);},
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all<Color>(MyColors.purpleColor),
-                  padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.symmetric(horizontal: (390/2), vertical: (50/2))),
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0),)
-                  ),
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0))),
+                  minimumSize: MaterialStateProperty.all<Size>(const Size.fromHeight(50)),
                 ),
                 child: const Text(
-                  'Sign in', style: TextStyle(
+                  'Zaloguj', style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.w700,
                 ),
@@ -136,8 +134,8 @@ class _LoginViewState extends State<LoginView> {
             ),
             // SizedBox(height: 50), //padding
             //Or sign in With
-            const SizedBox(height: 30),
-            const Text('Or sign in With',
+            //const SizedBox(height: 30),
+            const Text('Zaloguj za pomocą',
               style: TextStyle(
                 color: Colors.deepPurple,
                 fontSize: 15,
@@ -157,12 +155,12 @@ class _LoginViewState extends State<LoginView> {
               ],
             ),
             // dont have acc text?
-            const SizedBox(height: 50), //padding
+            //const SizedBox(height: 50), //padding
             Column(children: [
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 const Flexible (
                 child: Text (
-                "Don't have account ?",
+                "Nie masz konta?",
               style: TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.w300,
@@ -173,8 +171,10 @@ class _LoginViewState extends State<LoginView> {
                   style: TextButton.styleFrom(
                     foregroundColor: Colors.deepPurple,
                   ),
-                    onPressed: () {},
-                    child: const Text('Sing Up',
+                    onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const RegisterView()),);
+                    },
+                    child: const Text('Zarejestruj się',
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,

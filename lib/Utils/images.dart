@@ -8,4 +8,6 @@ class MyImages {
   static const imageEmailIcon = "$_assetsFolder/email-icon.png";
   static const imagePasswordIcon = "$_assetsFolder/password-icon.png";
   static const imagePasswordEyeIcon = "$_assetsFolder/password-eye-icon.png";
+  static const imageBackIcon = "$_assetsFolder/back_icon.png";
+  static const imageEmailIcon2 = "$_assetsFolder/email-icon-2.png";
 }
