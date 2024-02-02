@@ -14,6 +14,29 @@ class LoginView extends StatefulWidget {
 
 //variables
 bool passwordVisible = false;
+final emailController = TextEditingController();
+final passController = TextEditingController();
+
+Future _loginError(BuildContext context) {
+  return showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return         AlertDialog (
+          title: const Text("Złe dane logowania"),
+          content: const Text("Wprowadź prawidłowe dane. Prawidłowe dane testowe to test/test"),
+          actions: [
+            TextButton(
+              style: TextButton.styleFrom(
+                textStyle: Theme.of(context).textTheme.labelLarge,
+              ),
+              child: const Text("OK"),
+              onPressed: () {Navigator.of(context).pop();},
+            ),
+          ],
+        );
+      }
+  );
+}
 
 class _LoginViewState extends State<LoginView> {
   @override
@@ -25,10 +48,8 @@ class _LoginViewState extends State<LoginView> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-
             //logo png
             Image.asset(MyImages.imageLogo),
-
             //Sign in simple text
             const Align(
               alignment: Alignment.centerLeft,
@@ -47,6 +68,7 @@ class _LoginViewState extends State<LoginView> {
             //const SizedBox(height: 30), //padding
             //User Name field
             TextField(
+              controller: emailController,
               decoration: InputDecoration(
                   hintText: 'E-mail',
                   enabledBorder: OutlineInputBorder(
@@ -70,6 +92,7 @@ class _LoginViewState extends State<LoginView> {
             //Password field
             TextField(
               obscureText: !passwordVisible,
+              controller: passController,
               decoration: InputDecoration(
                   hintText: 'Hasło',
                   enabledBorder: OutlineInputBorder(
@@ -117,9 +140,19 @@ class _LoginViewState extends State<LoginView> {
               ),
             ),
             //const SizedBox(height: 30),
+
+
+
             //Submit button
             ElevatedButton(
-                onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeView()),);},
+                onPressed: () {
+                  if (emailController.text == "test" && passController.text == "test") {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeView()),);
+                  } else {
+                    _loginError(context);
+                  }
+
+                  },
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all<Color>(MyColors.purpleColor),
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0))),

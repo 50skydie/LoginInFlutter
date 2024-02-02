@@ -15,10 +15,9 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(15),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(30),
         child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Align(
                 alignment: Alignment.topLeft,
@@ -46,7 +45,7 @@ class _HomeViewState extends State<HomeView> {
                 child: Padding(
                   padding: EdgeInsets.all(30.0),
                   child:
-                  Text('Witaj <nazwa_użytkownika>', textAlign: TextAlign.left,
+                  Text('Witaj test', textAlign: TextAlign.left,
                     style: TextStyle(
                       color: Colors.deepPurple,
                       fontSize: 20,
@@ -72,16 +71,63 @@ class _HomeViewState extends State<HomeView> {
                   ),
                 ),
               ),
+              Wrap(
+                spacing: 20,
+                runSpacing: 20,
+                children: [ //hardcoded taski to-do listy
+                  Container(
+                    height: 100,
+                    width: 600,
+                    color: Colors.grey,
+                    child: const Center(child: Text("Przykładowe zadanie 1"),),
+                  ),
+                  Container(
+                    height: 100,
+                    width: 600,
+                    color: Colors.grey,
+                    child: const Center(child: Text("Przykładowe zadanie 2"),),
+                  ),
+                  Container(
+                    height: 100,
+                    width: 600,
+                    color: Colors.grey,
+                    child: const Center(child: Text("Przykładowe zadanie 3"),),
+                  ),
+                  Container(
+                    height: 100,
+                    width: 600,
+                    color: Colors.grey,
+                    child: const Center(child: Text("Przykładowe zadanie 4"),),
+                  ),
+                  Container(
+                    height: 100,
+                    width: 600,
+                    color: Colors.grey,
+                    child: const Center(child: Text("Przykładowe zadanie 5"),),
+                  ),
+                  Container(
+                    height: 100,
+                    width: 600,
+                    color: Colors.grey,
+                    child: const Center(child: Text("Przykładowe zadanie 6"),),
+                  ),
+                  Container(
+                    height: 100,
+                    width: 600,
+                    color: Colors.grey,
+                    child: const Center(child: Text("Przykładowe zadanie 7"),),
+                  ),
+                  Container(
+                    height: 100,
+                    width: 600,
+                    color: Colors.grey,
+                    child: const Center(child: Text("Przykładowe zadanie 8"),),
+                  ),
 
-              const SingleChildScrollView(
-                child: Column(
-                  children: <Widget>[
-                    //todo crud's
-                  ],
-                ),
-              )
-
-            ]
+                ],
+              ),
+              const SizedBox(height: 40), //padding
+            ],
         ),
       ),
     );
